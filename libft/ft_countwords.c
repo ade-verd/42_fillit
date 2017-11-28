@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strupr.c                                        :+:      :+:    :+:   */
+/*   ft_countwords.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oozkaya <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: ade-verd <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/23 10:23:10 by oozkaya           #+#    #+#             */
-/*   Updated: 2017/11/23 10:23:22 by oozkaya          ###   ########.fr       */
+/*   Created: 2017/11/27 13:51:12 by ade-verd          #+#    #+#             */
+/*   Updated: 2017/11/27 14:07:06 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-char	*ft_strupr(char *str)
+int		ft_countwords(char const *s, char c)
 {
 	int		i;
+	int		count;
 
 	i = 0;
-	while (str[i])
+	count = 0;
+	while (s[i] != '\0')
 	{
-		str[i] = ft_toupper(str[i]);
-		i++;
+		while (s[i] == c)
+			i++;
+		if (s[i] != '\0')
+			count++;
+		while (s[i] != '\0' && s[i] != c)
+			i++;
 	}
-	return (str);
+	return (count);
 }

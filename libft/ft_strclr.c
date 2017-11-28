@@ -3,18 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strclr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oozkaya <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: ade-verd <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/15 15:10:25 by oozkaya           #+#    #+#             */
-/*   Updated: 2017/11/15 15:42:44 by oozkaya          ###   ########.fr       */
+/*   Created: 2017/11/22 13:38:35 by ade-verd          #+#    #+#             */
+/*   Updated: 2017/11/22 13:40:14 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <string.h>
 
 void	ft_strclr(char *s)
 {
-	if (!s)
+	if (s == NULL)
 		return ;
-	ft_bzero(s, ft_strlen(s));
+	while (*s)
+		*s++ = '\0';
 }

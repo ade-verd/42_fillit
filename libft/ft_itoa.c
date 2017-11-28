@@ -3,44 +3,58 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oozkaya <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: ade-verd <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/20 07:31:21 by oozkaya           #+#    #+#             */
-/*   Updated: 2017/11/20 08:27:03 by oozkaya          ###   ########.fr       */
+/*   Created: 2017/11/23 12:27:47 by ade-verd          #+#    #+#             */
+/*   Updated: 2017/11/23 17:22:18 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdlib.h>
 
-static size_t	ft_len(int n)
+static int		ft_abs(int n)
 {
-	size_t	i;
+	if (n < 0)
+		n = -n;
+	return (n);
+}
 
-	i = 1;
-	while (n /= 10)
-		i++;
-	return (i);
+static int		ft_intlen(int n)
+{
+	int		nb_char;
+	int		sign;
+
+	nb_char = 1;
+	sign = (n < 0 ? -1 : 1);
+	while (n / 10 != 0)
+	{
+		nb_char++;
+		n = n / 10;
+	}
+	if (sign < 0)
+		return (nb_char + 1);
+	return (nb_char);
 }
 
 char			*ft_itoa(int n)
 {
-	char			*str;
-	size_t			len;
-	unsigned int	nbr;
+	char	*n_char;
+	int		len;
+	int		start_nb;
 
-	len = ft_len(n);
-	nbr = n;
-	if (n < 0)
-	{
-		nbr = -n;
-		len++;
-	}
-	if (!(str = ft_strnew(len)))
+	len = ft_intlen(n);
+	start_nb = (n < 0 ? 1 : 0);
+	if ((n_char = (char*)malloc(sizeof(char) * len + 1)) == NULL)
 		return (NULL);
-	str[--len] = nbr % 10 + '0';
-	while (nbr /= 10)
-		str[--len] = nbr % 10 + '0';
-	if (n < 0)
-		str[0] = '-';
-	return (str);
+	n_char[len] = '\0';
+	len--;
+	while (len >= start_nb)
+	{
+		n_char[len] = ft_abs(n % 10) + 48;
+		n = n / 10;
+		len--;
+	}
+	if (start_nb == 1)
+		n_char[len] = '-';
+	return (n_char);
 }

@@ -3,21 +3,34 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strequ.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oozkaya <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: ade-verd <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/15 16:57:10 by oozkaya           #+#    #+#             */
-/*   Updated: 2017/11/15 17:04:29 by oozkaya          ###   ########.fr       */
+/*   Created: 2017/11/22 16:30:51 by ade-verd          #+#    #+#             */
+/*   Updated: 2017/11/22 16:39:41 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <string.h>
 
-int		ft_strequ(char const *s1, char const *s2)
+static int		ft_strcmp(const char *s1, const char *s2)
 {
-	if (!s1 || !s2)
+	int		i;
+
+	i = 0;
+	while (s1[i] != '\0' && s2[i] != '\0')
+	{
+		if (s1[i] != s2[i])
+			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+		i++;
+	}
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+}
+
+int				ft_strequ(char const *s1, char const *s2)
+{
+	if (s1 == NULL || s2 == NULL)
 		return (0);
-	if (ft_strcmp(s1, s2))
-		return (0);
-	else
+	if (ft_strcmp(s1, s2) == 0)
 		return (1);
+	return (0);
 }

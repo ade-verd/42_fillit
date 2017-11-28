@@ -3,17 +3,36 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putendl.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oozkaya <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: ade-verd <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/20 08:51:04 by oozkaya           #+#    #+#             */
-/*   Updated: 2017/11/20 08:52:57 by oozkaya          ###   ########.fr       */
+/*   Created: 2017/11/22 10:58:37 by ade-verd          #+#    #+#             */
+/*   Updated: 2017/11/22 12:32:25 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <unistd.h>
 
-void	ft_putendl(char const *s)
+static void		ft_putchar(char c)
 {
+	write(1, &c, 1);
+}
+
+static void		ft_putstr(char const *s)
+{
+	int		i;
+
+	i = 0;
+	while (s[i] != '\0')
+	{
+		ft_putchar(s[i]);
+		i++;
+	}
+}
+
+void			ft_putendl(char const *s)
+{
+	if (s == NULL)
+		return ;
 	ft_putstr(s);
 	ft_putchar('\n');
 }

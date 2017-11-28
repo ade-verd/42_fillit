@@ -3,30 +3,35 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oozkaya <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: ade-verd <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/10 09:42:39 by oozkaya           #+#    #+#             */
-/*   Updated: 2017/11/27 09:48:11 by oozkaya          ###   ########.fr       */
+/*   Created: 2017/11/20 18:57:47 by ade-verd          #+#    #+#             */
+/*   Updated: 2017/11/21 15:51:41 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <string.h>
 
-void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
+void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
-	unsigned char	*dest2;
-	unsigned char	*src2;
-	size_t			i;
+	int				i;
+	unsigned char	*dst_2;
+	unsigned char	*src_2;
+	char			*point;
 
-	dest2 = (unsigned char*)dest;
-	src2 = (unsigned char*)src;
 	i = 0;
-	while (i < n)
+	dst_2 = (unsigned char*)dst;
+	src_2 = (unsigned char*)src;
+	point = NULL;
+	while (n--)
 	{
-		dest2[i] = src2[i];
-		if (src2[i] == (unsigned char)c)
-			return (dest + i + 1);
+		dst_2[i] = src_2[i];
+		if (src_2[i] == (unsigned char)c)
+		{
+			dst_2[i] = (unsigned char)c;
+			return (dst + i + 1);
+		}
 		i++;
 	}
-	return (NULL);
+	return (point);
 }

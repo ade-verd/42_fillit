@@ -3,30 +3,41 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oozkaya <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: ade-verd <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/15 16:20:59 by oozkaya           #+#    #+#             */
-/*   Updated: 2017/11/15 16:40:38 by oozkaya          ###   ########.fr       */
+/*   Created: 2017/11/22 15:28:33 by ade-verd          #+#    #+#             */
+/*   Updated: 2017/11/22 16:19:34 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <string.h>
+#include <stdlib.h>
 
-char	*ft_strmap(char const *s, char (*f)(char))
+static size_t	ft_strlen(const char *str)
 {
-	char	*new;
 	int		i;
 
-	if (!s || !f)
+	i = 0;
+	while (str[i] != '\0')
+		i++;
+	return (i);
+}
+
+char			*ft_strmap(char const *s, char (*f)(char))
+{
+	char	*new_s;
+	int		i;
+
+	if (s == NULL || f == NULL)
 		return (NULL);
-	if (!(new = (char*)malloc(sizeof(*new) * (ft_strlen(s) + 1))))
+	if ((new_s = (char*)malloc(sizeof(char) * (ft_strlen(s) + 1))) == NULL)
 		return (NULL);
 	i = 0;
-	while (s[i])
+	while (s[i] != '\0')
 	{
-		new[i] = f(s[i]);
+		new_s[i] = f(s[i]);
 		i++;
 	}
-	new[i] = '\0';
-	return (new);
+	new_s[i] = '\0';
+	return (new_s);
 }

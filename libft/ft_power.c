@@ -1,18 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isupper.c                                       :+:      :+:    :+:   */
+/*   ft_power.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oozkaya <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: ade-verd <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/23 10:22:27 by oozkaya           #+#    #+#             */
-/*   Updated: 2017/11/23 10:22:30 by oozkaya          ###   ########.fr       */
+/*   Created: 2017/11/27 14:44:37 by ade-verd          #+#    #+#             */
+/*   Updated: 2017/11/27 14:46:39 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_isupper(int c)
+int		ft_power(int nb, int power)
 {
-	if (c >= 'A' && c <= 'Z')
+	int result;
+
+	if (power < 0)
+		return (0);
+	if (power == 0)
 		return (1);
-	return (0);
+	else
+		result = nb * ft_power(nb, power - 1);
+	return (result);
 }

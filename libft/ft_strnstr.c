@@ -3,27 +3,47 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oozkaya <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: ade-verd <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/09 13:15:08 by oozkaya           #+#    #+#             */
-/*   Updated: 2017/11/22 09:37:34 by oozkaya          ###   ########.fr       */
+/*   Created: 2017/11/20 13:35:45 by ade-verd          #+#    #+#             */
+/*   Updated: 2017/11/20 14:09:59 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <string.h>
 
-char	*ft_strnstr(const char *str, const char *to_find, size_t len)
+static size_t	ft_strlen(const char *str)
 {
-	size_t	size;
+	int		i;
 
-	if (!*to_find)
-		return ((char *)str);
-	size = ft_strlen(to_find);
-	while (*str && len-- >= size)
+	i = 0;
+	while (str[i] != '\0')
+		i++;
+	return (i);
+}
+
+char			*ft_strnstr(const char *haystack, const char *needle, size_t n)
+{
+	int		i;
+	int		j;
+	int		start;
+	char	*point;
+
+	i = 0;
+	point = NULL;
+	if (ft_strlen(needle) == 0)
+		return ((char*)haystack);
+	while (haystack[i] != '\0')
 	{
-		if (*str == *to_find && ft_strncmp(str, to_find, size) == 0)
-			return ((char *)str);
-		str++;
+		j = 0;
+		start = i;
+		while (haystack[i + j] == needle[j] && (i + j) < (int)n)
+		{
+			if (needle[j + 1] == '\0')
+				return (point = (char*)&haystack[start]);
+			j++;
+		}
+		i++;
 	}
-	return (NULL);
+	return (point);
 }

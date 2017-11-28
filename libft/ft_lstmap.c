@@ -3,32 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oozkaya <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: ade-verd <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/22 07:06:56 by oozkaya           #+#    #+#             */
-/*   Updated: 2017/11/22 11:45:04 by oozkaya          ###   ########.fr       */
+/*   Created: 2017/11/24 18:31:09 by ade-verd          #+#    #+#             */
+/*   Updated: 2017/11/27 11:59:27 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
 t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
-	t_list	*first;
-	t_list	*new;
-	t_list	*tmp;
+	t_list	*f_lst;
+	t_list	*f_next;
 
-	if (!lst || !f)
+	if (lst == NULL || f == NULL)
 		return (NULL);
-	tmp = f(lst);
-	new = ft_lstnew(tmp->content, tmp->content_size);
-	first = new;
-	while (lst->next)
+	f_lst = NULL;
+	f_next = NULL;
+	while (lst)
 	{
-		tmp = f(lst->next);
-		new->next = ft_lstnew(tmp->content, tmp->content_size);
-		new = new->next;
+		if (f_lst == NULL)
+		{
+			f_lst = f(lst);
+			f_next = f_lst;
+		}
+		else
+		{
+			f_next->next = f(lst);
+			f_next = f_next->next;
+		}
 		lst = lst->next;
 	}
-	return (first);
+	return (f_lst);
 }

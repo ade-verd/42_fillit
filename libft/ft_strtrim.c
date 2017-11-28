@@ -3,58 +3,51 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oozkaya <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: ade-verd <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/15 17:45:40 by oozkaya           #+#    #+#             */
-/*   Updated: 2017/11/20 07:19:07 by oozkaya          ###   ########.fr       */
+/*   Created: 2017/11/22 17:46:00 by ade-verd          #+#    #+#             */
+/*   Updated: 2017/11/22 19:19:20 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <string.h>
+#include <stdlib.h>
 
-static int	ft_end(char const *s, int len)
-{
-	int		end;
-
-	while (s[len] == ' ' || s[len] == '\n' || s[len] == '\t' || s[len] == 0)
-		len--;
-	end = len;
-	return (end);
-}
-
-static int	ft_start(char const *s, int len)
+static size_t	ft_strlen(const char *str)
 {
 	int		i;
-	int		start;
 
 	i = 0;
-	while (s[i] == ' ' || s[i] == '\n' || s[i] == '\t')
-	{
-		len--;
+	while (str[i] != '\0')
 		i++;
-	}
-	start = i;
-	return (start);
+	return (i);
 }
 
-char		*ft_strtrim(char const *s)
+char			*ft_strtrim(char const *s)
 {
-	char	*new;
+	char	*trim;
 	int		i;
-	int		len;
-	int		start;
+	int		a;
 	int		end;
+	int		diff;
 
-	if (!s)
-		return (NULL);
-	len = ft_strlen(s);
-	end = ft_end(s, len);
-	start = ft_start(s, len);
-	if (!(new = (char*)malloc(sizeof(*new) * (len / 2))))
-		return (NULL);
 	i = 0;
-	while (start <= end)
-		new[i++] = s[start++];
-	new[i] = '\0';
-	return (new);
+	a = 0;
+	if (s == NULL)
+		return (NULL);
+	while (s[a] && (s[a] == ' ' || s[a] == '\t' || s[a] == '\n'))
+		a++;
+	end = ft_strlen(s) - 1;
+	while (s[end] && (s[end] == ' ' || s[end] == '\t' || s[end] == '\n'))
+		end--;
+	diff = (end < a ? 1 : end - a + 1);
+	if ((trim = (char*)malloc(sizeof(char) * (diff + 1))) == NULL)
+		return (NULL);
+	while (a <= end)
+	{
+		trim[i++] = s[a];
+		a++;
+	}
+	trim[i] = '\0';
+	return (trim);
 }

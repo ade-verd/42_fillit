@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlwr.c                                        :+:      :+:    :+:   */
+/*   ft_intlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oozkaya <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: ade-verd <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/23 10:23:40 by oozkaya           #+#    #+#             */
-/*   Updated: 2017/11/23 10:23:44 by oozkaya          ###   ########.fr       */
+/*   Created: 2017/11/27 13:38:17 by ade-verd          #+#    #+#             */
+/*   Updated: 2017/11/27 13:39:18 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-char	*ft_strlwr(char *str)
+int		ft_intlen(int n)
 {
-	int		i;
+	int		nb_char;
+	int		sign;
 
-	i = 0;
-	while (str[i])
+	nb_char = 1;
+	sign = (n < 0 ? -1 : 1);
+	while (n / 10 != 0)
 	{
-		str[i] = ft_tolower(str[i]);
-		i++;
+		nb_char++;
+		n = n / 10;
 	}
-	return (str);
+	if (sign < 0)
+		return (nb_char + 1);
+	return (nb_char);
 }
