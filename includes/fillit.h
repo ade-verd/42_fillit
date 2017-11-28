@@ -6,18 +6,17 @@
 /*   By: oozkaya <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/27 08:31:45 by oozkaya           #+#    #+#             */
-/*   Updated: 2017/11/28 10:10:16 by oozkaya          ###   ########.fr       */
+/*   Updated: 2017/11/28 14:58:12 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FILLIT_H
 # define FILLIT_H
 
-typedef strust	s_check
-{
-	
-}				t_check;
+# include <string.h>
+# include <stdlib.h>
 
 int		check_square(char *str);
+char**	ft_splittestris(char *str);
 
 #endif
