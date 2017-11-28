@@ -6,22 +6,12 @@
 /*   By: ade-verd <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/22 16:23:22 by ade-verd          #+#    #+#             */
-/*   Updated: 2017/11/22 16:25:20 by ade-verd         ###   ########.fr       */
+/*   Updated: 2017/11/28 14:42:14 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
 #include <stdlib.h>
-
-static size_t	ft_strlen(const char *str)
-{
-	int		i;
-
-	i = 0;
-	while (str[i] != '\0')
-		i++;
-	return (i);
-}
+#include "libft.h"
 
 char			*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {

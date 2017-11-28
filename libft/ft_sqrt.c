@@ -6,22 +6,11 @@
 /*   By: ade-verd <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/27 14:48:05 by ade-verd          #+#    #+#             */
-/*   Updated: 2017/11/27 14:49:02 by ade-verd         ###   ########.fr       */
+/*   Updated: 2017/11/28 14:38:42 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-static int		ft_power(int nb, int power)
-{
-	int result;
-
-	if (power < 0)
-		return (0);
-	if (power == 0)
-		return (1);
-	else
-		result = nb * ft_power(nb, power - 1);
-	return (result);
-}
+#include "libft.h"
 
 int				ft_sqrt(int nb)
 {

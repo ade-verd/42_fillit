@@ -6,24 +6,12 @@
 /*   By: ade-verd <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/24 11:49:52 by ade-verd          #+#    #+#             */
-/*   Updated: 2017/11/24 16:20:53 by ade-verd         ###   ########.fr       */
+/*   Updated: 2017/11/28 14:34:44 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
-
-static void		*ft_memocpy(void *dst, const void *src, size_t n)
-{
-	char	*dst_2;
-	char	*src_2;
-
-	dst_2 = dst;
-	src_2 = (char*)src;
-	while (n--)
-		*dst_2++ = *src_2++;
-	return (dst);
-}
 
 static t_list	*ft_add_link(t_list *list, void *content, size_t size)
 {
@@ -51,7 +39,7 @@ t_list			*ft_lstnew(void const *content, size_t content_size)
 	{
 		if ((content_cpy = (void*)malloc(content_size)) == NULL)
 			return (NULL);
-		content_cpy = ft_memocpy(content_cpy, content, content_size);
+		content_cpy = ft_memcpy(content_cpy, content, content_size);
 		newlist = ft_add_link(newlist, content_cpy, content_size);
 	}
 	return (newlist);

@@ -6,35 +6,12 @@
 /*   By: ade-verd <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/23 12:27:47 by ade-verd          #+#    #+#             */
-/*   Updated: 2017/11/23 17:22:18 by ade-verd         ###   ########.fr       */
+/*   Updated: 2017/11/28 14:33:53 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-
-static int		ft_abs(int n)
-{
-	if (n < 0)
-		n = -n;
-	return (n);
-}
-
-static int		ft_intlen(int n)
-{
-	int		nb_char;
-	int		sign;
-
-	nb_char = 1;
-	sign = (n < 0 ? -1 : 1);
-	while (n / 10 != 0)
-	{
-		nb_char++;
-		n = n / 10;
-	}
-	if (sign < 0)
-		return (nb_char + 1);
-	return (nb_char);
-}
+#include "libft.h"
 
 char			*ft_itoa(int n)
 {

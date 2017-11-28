@@ -6,7 +6,7 @@
 #    By: oozkaya <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/27 07:29:36 by oozkaya           #+#    #+#              #
-#    Updated: 2017/11/28 10:11:10 by oozkaya          ###   ########.fr        #
+#    Updated: 2017/11/28 13:43:58 by oozkaya          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,8 @@ LIB = $(LIB_PATH)/libft.a
 LIB_LINK = -L $(LIB_PATH) -lft
 
 INC_DIR = includes
-INCS = -I $(LIB_PATH)/$(INC_DIR) -I $(INC_DIR)
+INC_LIB = ./
+INCS = -I $(LIB_PATH)/$(INC_LIB) -I $(INC_DIR)
 
 SRC_DIR = src
 SRC = main.c
