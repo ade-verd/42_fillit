@@ -6,7 +6,7 @@
 #    By: oozkaya <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/27 07:29:36 by oozkaya           #+#    #+#              #
-#    Updated: 2017/11/28 13:43:58 by oozkaya          ###   ########.fr        #
+#    Updated: 2017/11/28 17:14:31 by oozkaya          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ INC_LIB = ./
 INCS = -I $(LIB_PATH)/$(INC_LIB) -I $(INC_DIR)
 
 SRC_DIR = src
-SRC = main.c
+SRC = main.c read.c
 
 OBJ_DIR = obj
 

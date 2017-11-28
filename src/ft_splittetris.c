@@ -6,7 +6,7 @@
 /*   By: ade-verd <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/28 13:32:02 by ade-verd          #+#    #+#             */
-/*   Updated: 2017/11/28 15:21:17 by ade-verd         ###   ########.fr       */
+/*   Updated: 2017/11/28 16:37:27 by oozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,8 @@ static char		*ft_extract_tm(char const *s, int start)
 
 	i = 0;
 	end = start;
-	while (s[end] != '\n' && (s[end + 1] != '\n' || s[end + 1] != '\0'))
+	while (s[end] && s[end] != '\n' &&
+			(s[end + 1] != '\n' || s[end + 1] != '\0'))
 			end++;
 	if ((tm = (char*)malloc(sizeof(char) * (end - start + 1))) == NULL)
 		return (NULL);
