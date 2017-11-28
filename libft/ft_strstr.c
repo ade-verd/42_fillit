@@ -6,23 +6,14 @@
 /*   By: ade-verd <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/20 12:16:31 by ade-verd          #+#    #+#             */
-/*   Updated: 2017/11/20 13:35:53 by ade-verd         ###   ########.fr       */
+/*   Updated: 2017/11/28 13:40:31 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
+#include "libft.h"
 
-static size_t	ft_strlen(const char *str)
-{
-	int		i;
-
-	i = 0;
-	while (str[i] != '\0')
-		i++;
-	return (i);
-}
-
-char			*ft_strstr(const char *haystack, const char *needle)
+char	*ft_strstr(const char *haystack, const char *needle)
 {
 	int		i;
 	int		j;

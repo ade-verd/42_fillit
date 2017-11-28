@@ -6,16 +6,12 @@
 /*   By: ade-verd <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/22 11:12:56 by ade-verd          #+#    #+#             */
-/*   Updated: 2017/11/22 12:32:25 by ade-verd         ###   ########.fr       */
+/*   Updated: 2017/11/28 14:36:25 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-
-static void		ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
+#include "libft.h"
 
 void			ft_putnbr(int n)
 {
