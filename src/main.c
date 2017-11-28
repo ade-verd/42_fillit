@@ -6,17 +6,17 @@
 /*   By: oozkaya <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/27 10:47:11 by oozkaya           #+#    #+#             */
-/*   Updated: 2017/11/27 18:14:48 by oozkaya          ###   ########.fr       */
+/*   Updated: 2017/11/28 15:47:49 by oozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
-#include <fcntl.h>
+#include "fillit.h"
 #include "libft.h"
 
 int		main(int ac, char **av)
 {
 	int		fd;
-	char	buf[5];
+	char	buf[21];
 
 	if (ac == 2)
 	{
@@ -25,9 +25,9 @@ int		main(int ac, char **av)
 			ft_putstr("No such file.\n");
 		else
 		{
-			read(fd, buf, 4);
-			buf[4] = '\0';
-			printf("buf: %s\n", buf);
+			read(fd, buf, 21);
+			buf[20] = '\0';
+			printf("buf:\n%s\n", buf);
 			close(fd);
 		}
 	}
