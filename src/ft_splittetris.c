@@ -6,7 +6,7 @@
 /*   By: ade-verd <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/28 13:32:02 by ade-verd          #+#    #+#             */
-/*   Updated: 2017/11/29 11:03:11 by ade-verd         ###   ########.fr       */
+/*   Updated: 2017/11/29 12:19:55 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,6 @@ static char		*ft_extract_tm(char const *s, int start)
 
 	i = 0;
 	end = start;
-	while (s[start] && s[start] == '\n')
-		start++;
 	while (s[end])
 	{
 		if (s[end] == '\n' && (s[end + 1] == '\n' || s[end + 1] == '\0'))
@@ -87,7 +85,7 @@ char			**ft_splittetris(char *str)
 		if ((tab[i] = (char*)malloc(sizeof(char) * len + 1)) == NULL)
 			return (NULL);
 		tab[i] = tm;
-		j = j + len;
+		j = j + len + 1;
 		i++;
 	}
 	tab[i] = 0;

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_block.c                                      :+:      :+:    :+:   */
+/*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oozkaya <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: ade-verd <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/27 14:47:05 by oozkaya           #+#    #+#             */
-/*   Updated: 2017/11/28 14:37:57 by oozkaya          ###   ########.fr       */
+/*   Created: 2017/11/29 11:05:30 by ade-verd          #+#    #+#             */
+/*   Updated: 2017/11/29 12:18:03 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		check_square(char *str)
+static int	ft_check_onetm(char *str)
 {
 	int		i;
 	int		hashtag;
@@ -21,7 +21,7 @@ int		check_square(char *str)
 	point = 0;
 	endline = 0;
 	i = 0;
-	while (str[i++])
+	while (str[i])
 	{
 		if (str[i] == '#')
 			hashtag++;
@@ -29,10 +29,23 @@ int		check_square(char *str)
 			point++;
 		if (str[i] == '\n')
 			endline++;
+		i++;
 	}
 	if (hashtag == 4 && point == 12 && endline == 4)
 		return (1);
 	return (0);
 }
 
+int			ft_check_all(char **tab)
+{
+	int		tm_nb;
 
+	tm_nb = 0;
+	while (tab[tm_nb])
+	{
+		if (ft_check_onetm(tab[tm_nb]) == 0)
+			return (0);
+		tm_nb++;
+	}
+	return (1);
+}

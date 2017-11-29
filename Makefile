@@ -6,7 +6,7 @@
 #    By: oozkaya <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/27 07:29:36 by oozkaya           #+#    #+#              #
-#    Updated: 2017/11/29 10:43:35 by ade-verd         ###   ########.fr        #
+#    Updated: 2017/11/29 11:08:40 by ade-verd         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ SRC_DIR = src
 SRC = main.c\
 	  read.c\
 	  ft_splittetris.c\
+	  checker.c\
 
 OBJ_DIR = obj
 
