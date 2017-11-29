@@ -6,7 +6,7 @@
 /*   By: oozkaya <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/27 10:47:11 by oozkaya           #+#    #+#             */
-/*   Updated: 2017/11/28 17:13:48 by oozkaya          ###   ########.fr       */
+/*   Updated: 2017/11/29 10:43:31 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
@@ -17,7 +17,10 @@ int		main(int ac, char **av)
 {
 	int		fd;
 	char	*file;
+	char	**tab;
+	int		tm_nb;
 
+	tm_nb = 0;
 	if (ac == 2)
 	{
 		fd = open(av[1], O_RDONLY);
@@ -27,7 +30,13 @@ int		main(int ac, char **av)
 			return (-1);
 		}
 		file = ft_read_buff(fd);
-		ft_putstr(file);
+		tab = ft_splittetris(file);
+		while(tab[tm_nb])
+		{
+			ft_putstr(tab[tm_nb]);
+			ft_putstr("------\n");
+			tm_nb++;
+		}
 		if (close(fd) == -1)
 			return (-1);
 	}

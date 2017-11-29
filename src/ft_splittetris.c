@@ -6,7 +6,7 @@
 /*   By: ade-verd <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/28 13:32:02 by ade-verd          #+#    #+#             */
-/*   Updated: 2017/11/28 16:37:27 by oozkaya          ###   ########.fr       */
+/*   Updated: 2017/11/29 10:43:39 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ static char		*ft_extract_tm(char const *s, int start)
 	return (tm);
 }
 
-char**			ft_splittestris(char *str)
+char			**ft_splittetris(char *str)
 {
 	char	**tab;
 	int		i;

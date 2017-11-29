@@ -6,7 +6,7 @@
 #    By: oozkaya <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/27 07:29:36 by oozkaya           #+#    #+#              #
-#    Updated: 2017/11/28 17:14:31 by oozkaya          ###   ########.fr        #
+#    Updated: 2017/11/29 10:43:35 by ade-verd         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,9 @@ INC_LIB = ./
 INCS = -I $(LIB_PATH)/$(INC_LIB) -I $(INC_DIR)
 
 SRC_DIR = src
-SRC = main.c read.c
+SRC = main.c\
+	  read.c\
+	  ft_splittetris.c\
 
 OBJ_DIR = obj
 
