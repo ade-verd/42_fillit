@@ -6,7 +6,7 @@
 /*   By: oozkaya <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/29 13:18:20 by oozkaya           #+#    #+#             */
-/*   Updated: 2017/11/29 14:54:52 by ade-verd         ###   ########.fr       */
+/*   Updated: 2017/11/29 15:03:18 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 ** ft_check_content : check size and content ('#', '.','\n'))
 ** &&
 ** ft_contiguous_places : check if TM has pieces contiguous by at least 1 side.
+** At least one '#' in the TM  has to touch two others '#'.
 */
 
 #include "fillit.h"
