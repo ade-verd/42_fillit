@@ -1,40 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create_empty_map.c                                 :+:      :+:    :+:   */
+/*   ft_resize_map.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ade-verd <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/29 15:03:22 by ade-verd          #+#    #+#             */
-/*   Updated: 2017/11/29 18:13:05 by ade-verd         ###   ########.fr       */
+/*   Created: 2017/11/29 15:11:20 by ade-verd          #+#    #+#             */
+/*   Updated: 2017/11/29 18:13:07 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-char	*ft_create_empty_map(int side)
+char	*ft_resize_map(char *str)
 {
-	char	*str;
 	int		i;
-	int		j;
-	int		len;
+	int		src;
+	int		dst;
+	char	*tmp;
+	int		size;
 
 	i = 0;
-	len = side * side + side;
-	if (!(str = (char*)malloc(sizeof(char) * len + 1)))
-		return (NULL);
-	while (i < len)
-	{	
-		j = 0;
-		while (j < side)
-		{
-			str[i] = '.';
-			i++;
-			j++;
-		}
-		str[i] = '\n';
-		i++;
+	size = 0;
+	while (str[i++])
+		if (str[i] == '\n')
+			size++;
+	tmp = ft_strdup(str);
+	ft_memdel((void**)&str);
+	str = ft_create_empty_map(size + 1);
+	src = -1;
+	dst = 0;
+	while (tmp[++src])
+	{
+		i = 0;
+		while (i++ < size)
+			str[dst++] = tmp[src++];
+		dst = dst + 2;
 	}
-	str[i] = '\0';
+	ft_memdel((void**)&tmp);
 	return (str);
 }
