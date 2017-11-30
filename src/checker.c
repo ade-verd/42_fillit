@@ -6,7 +6,7 @@
 /*   By: oozkaya <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/29 13:18:20 by oozkaya           #+#    #+#             */
-/*   Updated: 2017/11/29 15:03:18 by ade-verd         ###   ########.fr       */
+/*   Updated: 2017/11/30 10:39:06 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ static int	ft_contiguous_pieces(char *str)
 		if (str[i] == '#')
 		{
 			nb_sides = ft_nbsides_touched(str, i);
-			if (nb_sides == 2)
+			if (nb_sides >= 2)
 				twosides = 1;
 			if (nb_sides == 0)
 				return (0);
@@ -96,9 +96,6 @@ int			ft_check_all(char **tab)
 	tm_nb = 0;
 	while (tab[tm_nb])
 	{
-	//	ft_putstr("--------\n");//test affichage
-	//	ft_putstr(tab[tm_nb]);//test affichage
-	//	ft_putstr("--------\n");//test affichage
 		if (ft_check_content(tab[tm_nb]) == 0)
 			return (0);
 		if (ft_contiguous_pieces(tab[tm_nb]) == 0)
