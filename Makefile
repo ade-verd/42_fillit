@@ -6,7 +6,7 @@
 #    By: oozkaya <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/27 07:29:36 by oozkaya           #+#    #+#              #
-#    Updated: 2017/11/29 11:08:40 by ade-verd         ###   ########.fr        #
+#    Updated: 2017/11/30 10:50:15 by ade-verd         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,9 +26,11 @@ INCS = -I $(LIB_PATH)/$(INC_LIB) -I $(INC_DIR)
 
 SRC_DIR = src
 SRC = main.c\
-	  read.c\
-	  ft_splittetris.c\
-	  checker.c\
+	  reader.c\
+	  split_tetris.c\
+	  checker_init.c\
+	  map_creator.c\
+	  map_resizer.c\
 
 OBJ_DIR = obj
 
