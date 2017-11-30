@@ -6,13 +6,13 @@
 /*   By: ade-verd <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/30 15:05:02 by ade-verd          #+#    #+#             */
-/*   Updated: 2017/11/30 16:11:37 by ade-verd         ###   ########.fr       */
+/*   Updated: 2017/11/30 16:44:24 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-static t_point	*ft_newpoint(int x, int y)
+static t_point	*ft_newpoint(int x, int y, char letter)
 {
 	t_point	*point;
 
@@ -20,6 +20,7 @@ static t_point	*ft_newpoint(int x, int y)
 		return (NULL);
 	point->x = x;
 	point->y = y;
+	point->letter = letter;
 	point->next = NULL;
 	return (point);
 }
@@ -71,7 +72,7 @@ static int		ft_pos_y(int ref, int pos, int x, int size)
 	return (y);
 }
 
-t_point			*ft_get_coord_tm(char *src, int size)
+t_point			*ft_get_coord_tm(char *src, int size, char letter)
 {
 	int		pos;
 	int		x;
@@ -81,7 +82,7 @@ t_point			*ft_get_coord_tm(char *src, int size)
 
 	ref = -1;
 	pos = -1;
-	tm = ft_newpoint(0, 0);
+	tm = ft_newpoint(0, 0, letter);
 	while (src[++pos])
 	{
 		if (src[pos] == '#')
@@ -92,7 +93,7 @@ t_point			*ft_get_coord_tm(char *src, int size)
 			{
 				x = ft_pos_x(src, ref, pos);
 				y = ft_pos_y(ref, pos, x, size);
-				ft_lstappend(ft_newpoint(x, y), tm);
+				ft_lstappend(ft_newpoint(x, y, letter), tm);
 			}
 		}
 	}
