@@ -6,7 +6,7 @@
 /*   By: oozkaya <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/27 08:31:45 by oozkaya           #+#    #+#             */
-/*   Updated: 2017/11/29 18:13:06 by ade-verd         ###   ########.fr       */
+/*   Updated: 2017/11/30 12:59:18 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,18 @@
 
 # define BUFF_SIZE 1
 
-char	*ft_read_buff(int fd);
-char	**ft_splittetris(char *str);
-int		ft_check_all(char **tab);
-char	*ft_create_empty_map(int side);
-char	*ft_resize_map(char *str);
+typedef struct	s_point
+{
+	int			x;
+	int			y;
+	void		*next;
+}				t_point;
+
+
+char			*ft_read_buff(int fd);
+char			**ft_splittetris(char *str);
+int				ft_check_all(char **tab);
+char			*ft_create_empty_map(int side);
+char			*ft_resize_map(char *str);
 
 #endif
