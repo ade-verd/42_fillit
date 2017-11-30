@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   solver.c                                           :+:      :+:    :+:   */
+/*   get_tm_coord.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ade-verd <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/30 10:52:23 by ade-verd          #+#    #+#             */
-/*   Updated: 2017/11/30 13:37:20 by ade-verd         ###   ########.fr       */
+/*   Created: 2017/11/30 15:05:02 by ade-verd          #+#    #+#             */
+/*   Updated: 2017/11/30 16:11:37 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-t_list	ft_newpoint(int x, int y)
+static t_point	*ft_newpoint(int x, int y)
 {
 	t_point	*point;
 
@@ -20,10 +20,11 @@ t_list	ft_newpoint(int x, int y)
 		return (NULL);
 	point->x = x;
 	point->y = y;
+	point->next = NULL;
 	return (point);
 }
 
-void	ft_lstappend(t_point *new, t_point *point)
+static void		ft_lstappend(t_point *new, t_point *point)
 {
 	t_point		*current;
 
@@ -37,7 +38,7 @@ void	ft_lstappend(t_point *new, t_point *point)
 	}
 }
 
-int		ft_pos_x(char *src, int ref, int pos)
+static int		ft_pos_x(char *src, int ref, int pos)
 {
 	int		i;
 	int		j;
@@ -48,10 +49,11 @@ int		ft_pos_x(char *src, int ref, int pos)
 		j = 0;
 		while (src[i] != '\n')
 		{
-			if (src[i] == ref)
-				ref == j;
-			if (src[i] == pos)
+			if (i == ref)
+				ref = j;
+			if (i == pos)
 				return (j - ref);
+			i++;
 			j++;
 		}
 		i++;
@@ -59,7 +61,7 @@ int		ft_pos_x(char *src, int ref, int pos)
 	return (0);
 }
 
-int		ft_pos_y(int ref, int pos, int x, int size)
+static int		ft_pos_y(int ref, int pos, int x, int size)
 {
 	int		y;
 
@@ -69,24 +71,23 @@ int		ft_pos_y(int ref, int pos, int x, int size)
 	return (y);
 }
 
-void	ft_fill_new_tm(char *src, char *dst, int size, char *letter)
+t_point			*ft_get_coord_tm(char *src, int size)
 {
+	int		pos;
 	int		x;
 	int		y;
 	int		ref;
-	t_point	tm;
+	t_point	*tm;
 
-	pos = 0;
-	tm = NULL;
-	while (src[pos++])
+	ref = -1;
+	pos = -1;
+	tm = ft_newpoint(0, 0);
+	while (src[++pos])
 	{
 		if (src[pos] == '#')
 		{
-			if (ref == NULL)
-			{
+			if (ref == -1)
 				ref = pos;
-				ft_lstappend(ft_newpoint(0, 0), tm);
-			}
 			else
 			{
 				x = ft_pos_x(src, ref, pos);
@@ -95,4 +96,5 @@ void	ft_fill_new_tm(char *src, char *dst, int size, char *letter)
 			}
 		}
 	}
+	return (tm);
 }
