@@ -6,7 +6,7 @@
 /*   By: oozkaya <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/27 10:47:11 by oozkaya           #+#    #+#             */
-/*   Updated: 2017/12/01 14:58:27 by oozkaya          ###   ########.fr       */
+/*   Updated: 2017/12/01 17:14:07 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,8 @@ int		main(int ac, char **av)
 			t_tab++;
 			printf("---\n");
 		}*/
-		map = ft_solver(t_tab, map, 0, 2, 0);
-		printf("%s--------\n", map);
+		ft_solver(t_tab, map, 0, 2, 0);
+		//printf("%s--------\n", map);
 		if (close(fd) == -1)
 			return (-1);
 	}
