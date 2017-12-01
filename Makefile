@@ -6,7 +6,7 @@
 #    By: oozkaya <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/27 07:29:36 by oozkaya           #+#    #+#              #
-#    Updated: 2017/11/30 15:19:56 by ade-verd         ###   ########.fr        #
+#    Updated: 2017/12/01 08:45:03 by oozkaya          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,8 @@ SRC = main.c\
 	  checker_init.c\
 	  map_creator.c\
 	  map_resizer.c\
-	  get_tm_coord.c
+	  get_tm_coord.c\
+	  map_filler.c
 
 OBJ_DIR = obj
 

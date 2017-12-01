@@ -6,7 +6,7 @@
 /*   By: ade-verd <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/30 16:19:29 by ade-verd          #+#    #+#             */
-/*   Updated: 2017/11/30 19:11:04 by ade-verd         ###   ########.fr       */
+/*   Updated: 2017/12/01 12:07:11 by oozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int		ft_placement(t_point *tm, char *map, int pos, int size)
 	return (1);
 }
 
-int		ft_moveto(char *map, int dir, char letter)
+/*int		ft_moveto(char *map, int dir, char letter)
 {
 	int		i;
 
@@ -59,16 +59,27 @@ int		ft_moveto(char *map, int dir, char letter)
 		i++;
 	}
 	return (1)
-}
+}*/
 
-char	*ft_solver(t_point *tm, char *map, int size, int nb_tm)
+char	*ft_solver(t_point *tm, char *map, int pos, int size)
 {
-	int		pos;
-
-	if (tm->letter == nb_tm + 'A')
-		return (1);
-	if (ft_placement(tm, map, 0, size) == 1 && tm->next)
-		ft_solver(tm->next, 0, size);
-	ft_placement(tm, map, pos + 1, size);
+	//if (tm->letter == nb_tm + 'A')
+	//	return (1);
+	if (tm)
+	{
+		printf("%s---\n", map);
+		if (ft_placement(tm, map, pos, size) == 1)
+			ft_solver(tm->next, map, 0, size);
+		else
+		{
+			if (!map[pos + 1])
+			{
+				size++;
+				map = ft_create_empty_map(size);
+				pos = 0;
+			}
+			ft_solver(tm, map, pos + 1, size);
+		}
+	}
 	return (map);
 }

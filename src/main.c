@@ -6,7 +6,7 @@
 /*   By: oozkaya <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/27 10:47:11 by oozkaya           #+#    #+#             */
-/*   Updated: 2017/11/30 17:38:02 by ade-verd         ###   ########.fr       */
+/*   Updated: 2017/12/01 12:07:10 by oozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,13 @@ int		main(int ac, char **av)
 	int		fd;
 	char	*file;
 	char	**tab;
-	char	point;
 	char	letter;
 	char	*map;
-	t_point	*p;
+	int		nb_tm;
+	t_tetri	*tetri;
+	t_point	**t_tab;
 
+	tetri = NULL;
 	if (ac == 2)
 	{
 		fd = open(av[1], O_RDONLY);
@@ -34,6 +36,7 @@ int		main(int ac, char **av)
 		}
 		file = ft_read_buff(fd);
 		tab = ft_splittetris(file);
+		nb_tm = ft_count_tm(file);
 		if (ft_check_all(tab) == 0)
 		{
 			ft_putstr_fd("error\n", 2);
@@ -43,23 +46,38 @@ int		main(int ac, char **av)
 		j = 0;
 		letter = 'A';
 		map = ft_create_empty_map(4);
+		if (!(t_tab = (t_point**)malloc(sizeof(**t_tab) * nb_tm + 1)))
+			return (0);
+		t_tab[nb_tm] = 0;
 		while (tab[i])
 		{
-			point = 'a';
-			printf("%s--------\n", tab[i]);
-			p = ft_get_coord_tm(tab[i], 4, letter++);
-			//while (p)
-			//{
-			//	printf("%s\n--------\n", map);
-				while (ft_placement(p, map, j, 4) != 1 && map[j])
-					j++;
-		//		printf("%c\t point %c : x:%d y:%d\n", p->letter, point, p->x, p->y);
-		//		p = p->next;
-		//		point++;
-		//	}
-				printf("%s--------\n", map);
+			t_tab[i] = ft_get_coord_tm(tab[i], 4, letter++);
+		/*	printf("%s--------\n", tab[i]);
+			if (!tetri)
+			{
+				tetri->tm = ft_get_coord_tm(tab[i], 4, letter++);
+				tetri->next = tmp;
+			}
+			else
+			{
+				tmp->tm = ft_get_coord_tm(tab[i], 4, letter++);
+				tmp = tmp->next;
+			}*/
 			i++;
 		}
+		i = 0;
+		while (t_tab[i])
+		{
+			while (t_tab[i])
+			{
+				printf("x:%d\ty:%d\n", t_tab[i]->x, t_tab[i]->y);
+				t_tab[i] = t_tab[i]->next;
+			}
+			printf("---\n");
+			i++;
+		}
+		//ft_solver(tetri, map, 0, 4);
+		//printf("%s--------\n", map);
 		if (close(fd) == -1)
 			return (-1);
 	}

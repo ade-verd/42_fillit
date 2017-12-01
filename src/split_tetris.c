@@ -6,7 +6,7 @@
 /*   By: ade-verd <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/30 10:45:44 by ade-verd          #+#    #+#             */
-/*   Updated: 2017/11/30 10:50:06 by ade-verd         ###   ########.fr       */
+/*   Updated: 2017/12/01 12:07:12 by oozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 
 #include "fillit.h"
 
-static int		ft_count_tm(char const *str)
+int		ft_count_tm(char const *str)
 {
 	int		i;
 	int		count;
