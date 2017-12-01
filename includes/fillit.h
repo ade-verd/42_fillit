@@ -6,7 +6,7 @@
 /*   By: oozkaya <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/27 08:31:45 by oozkaya           #+#    #+#             */
-/*   Updated: 2017/12/01 12:07:12 by oozkaya          ###   ########.fr       */
+/*   Updated: 2017/12/01 14:26:03 by oozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,6 @@ int				ft_check_all(char **tab);
 char			*ft_create_empty_map(int side);
 char			*ft_resize_map(char *str);
 t_point			*ft_get_coord_tm(char *src, int size, char letter);
-char			*ft_solver(t_point *tm, char *map, int pos, int size);
+char			*ft_solver(t_point **tm, char *map, int pos, int size, int index);
 
 #endif

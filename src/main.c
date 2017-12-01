@@ -6,7 +6,7 @@
 /*   By: oozkaya <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/27 10:47:11 by oozkaya           #+#    #+#             */
-/*   Updated: 2017/12/01 12:07:10 by oozkaya          ###   ########.fr       */
+/*   Updated: 2017/12/01 14:58:27 by oozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 int		main(int ac, char **av)
 {
 	int		i;
-	int		j;
 	int		fd;
 	char	*file;
 	char	**tab;
@@ -43,41 +42,30 @@ int		main(int ac, char **av)
 			return (-1);
 		}
 		i = 0;
-		j = 0;
 		letter = 'A';
-		map = ft_create_empty_map(4);
+		map = ft_create_empty_map(2);
 		if (!(t_tab = (t_point**)malloc(sizeof(**t_tab) * nb_tm + 1)))
 			return (0);
 		t_tab[nb_tm] = 0;
 		while (tab[i])
 		{
+			printf("%s--\n", tab[i]);
 			t_tab[i] = ft_get_coord_tm(tab[i], 4, letter++);
-		/*	printf("%s--------\n", tab[i]);
-			if (!tetri)
-			{
-				tetri->tm = ft_get_coord_tm(tab[i], 4, letter++);
-				tetri->next = tmp;
-			}
-			else
-			{
-				tmp->tm = ft_get_coord_tm(tab[i], 4, letter++);
-				tmp = tmp->next;
-			}*/
 			i++;
 		}
 		i = 0;
-		while (t_tab[i])
+		/*while (*t_tab)
 		{
-			while (t_tab[i])
+			while (*t_tab)
 			{
-				printf("x:%d\ty:%d\n", t_tab[i]->x, t_tab[i]->y);
-				t_tab[i] = t_tab[i]->next;
+				printf("x:%d\ty:%d\n", (*t_tab)->x, (*t_tab)->y);
+				*t_tab = (*t_tab)->next;
 			}
+			t_tab++;
 			printf("---\n");
-			i++;
-		}
-		//ft_solver(tetri, map, 0, 4);
-		//printf("%s--------\n", map);
+		}*/
+		map = ft_solver(t_tab, map, 0, 2, 0);
+		printf("%s--------\n", map);
 		if (close(fd) == -1)
 			return (-1);
 	}

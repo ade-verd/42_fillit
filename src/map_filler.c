@@ -6,7 +6,7 @@
 /*   By: ade-verd <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/30 16:19:29 by ade-verd          #+#    #+#             */
-/*   Updated: 2017/12/01 12:07:11 by oozkaya          ###   ########.fr       */
+/*   Updated: 2017/12/01 15:54:00 by oozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,25 +61,36 @@ int		ft_placement(t_point *tm, char *map, int pos, int size)
 	return (1)
 }*/
 
-char	*ft_solver(t_point *tm, char *map, int pos, int size)
+char	*ft_solver(t_point **tm, char *map, int pos, int size, int i)
 {
-	//if (tm->letter == nb_tm + 'A')
-	//	return (1);
-	if (tm)
+	if (!tm[i])
+		return (map);
+	if (ft_placement(tm[i], map, pos, size) == 1)
 	{
-		printf("%s---\n", map);
-		if (ft_placement(tm, map, pos, size) == 1)
-			ft_solver(tm->next, map, 0, size);
-		else
-		{
-			if (!map[pos + 1])
-			{
-				size++;
-				map = ft_create_empty_map(size);
-				pos = 0;
-			}
-			ft_solver(tm, map, pos + 1, size);
-		}
+		printf("%s---------\n", map);
+		return (ft_solver(tm, map, 0, size, i + 1));
 	}
-	return (map);
+	while (tm[i])
+	{
+		if (ft_placement(tm[i], map, pos, size) == 1)
+			return(ft_solver(tm, map, 0, size, i + 1))
+		tm[i++];
+	}
+	/*else
+	{
+		if (!map[pos + 1] && !tm[i + 1])
+		{
+			size++;
+			map = ft_create_empty_map(size);
+			i = 0;
+			pos = -1;
+		}
+		else if (map[pos + 1] && tm[i - 1])
+		{
+			ft_del_current(map, tm[i - 1]->letter);
+			i--;
+		}
+		return (ft_solver(tm, map, pos + 1, size, i));
+	}*/
+	return (NULL);
 }
