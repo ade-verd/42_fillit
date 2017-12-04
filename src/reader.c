@@ -3,14 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   reader.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ade-verd <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: oozkaya <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/30 10:44:46 by ade-verd          #+#    #+#             */
-/*   Updated: 2017/11/30 10:44:56 by ade-verd         ###   ########.fr       */
+/*   Created: 2017/12/04 09:13:40 by oozkaya           #+#    #+#             */
+/*   Updated: 2017/12/04 09:13:54 by oozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
+
+/*
+** ft_read_buff
+** Reads and returns the string from the file descriptor.
+*/
 
 char	*ft_read_buff(int fd)
 {
@@ -30,7 +35,7 @@ char	*ft_read_buff(int fd)
 			return (NULL);
 		ft_strcpy(newbuff, buff);
 		ft_strcat(newbuff, tmp);
-		free(buff);
+		//free(buff);
 		buff = newbuff;
 		buff[len] = '\0';
 	}

@@ -6,14 +6,14 @@
 #    By: oozkaya <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/27 07:29:36 by oozkaya           #+#    #+#              #
-#    Updated: 2017/12/01 08:45:03 by oozkaya          ###   ########.fr        #
+#    Updated: 2017/12/03 23:28:48 by ade-verd         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 .PHONY: all clean fclean re
 
 NAME = fillit
-CFLAGS = -Wall -Wextra -Werror
+#CFLAGS = -Wall -Wextra -Werror
 CC = gcc
 
 LIB_PATH = libft
@@ -30,7 +30,6 @@ SRC = main.c\
 	  split_tetris.c\
 	  checker_init.c\
 	  map_creator.c\
-	  map_resizer.c\
 	  get_tm_coord.c\
 	  map_filler.c
 

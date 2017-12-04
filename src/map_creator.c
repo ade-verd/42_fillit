@@ -6,11 +6,16 @@
 /*   By: ade-verd <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/30 15:22:43 by ade-verd          #+#    #+#             */
-/*   Updated: 2017/11/30 15:22:50 by ade-verd         ###   ########.fr       */
+/*   Updated: 2017/12/04 09:10:39 by oozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
+
+/*
+** *ft_create_empty_map
+** Creates empty map filled with (side*side) '.' and side '/n'.
+*/
 
 char	*ft_create_empty_map(int side)
 {
