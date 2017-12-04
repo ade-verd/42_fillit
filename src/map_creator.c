@@ -6,7 +6,7 @@
 /*   By: ade-verd <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/30 15:22:43 by ade-verd          #+#    #+#             */
-/*   Updated: 2017/12/04 14:51:30 by ade-verd         ###   ########.fr       */
+/*   Updated: 2017/12/04 17:17:47 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,24 +42,4 @@ char	*ft_create_empty_map(int side)
 	}
 	str[i] = '\0';
 	return (str);
-}
-
-/*
-** ft_find_size_map
-** Counting number of '\n' to gets the size of the map.
-*/
-
-int		ft_find_size_map(char *map)
-{
-	int		i;
-	int		size;
-
-	i = 0;
-	size = 0;
-	while (map[i])
-	{
-		if (map[i] == '\n')
-			size++;
-	}
-	return (size);
 }

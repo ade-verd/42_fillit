@@ -6,7 +6,7 @@
 #    By: oozkaya <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/27 07:29:36 by oozkaya           #+#    #+#              #
-#    Updated: 2017/12/04 15:42:10 by ade-verd         ###   ########.fr        #
+#    Updated: 2017/12/04 16:47:56 by ade-verd         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -66,7 +66,7 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(INC_DIR)
 
 clean:
 	@rm -f $(OBJS)
-	@rm -rf $(OBJ_DIR)
+	@rm -Rf $(OBJ_DIR)
 	@echo "Cleaning -> " $(OBJS) $(DONE)
 
 fclean: clean
