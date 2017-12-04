@@ -6,7 +6,7 @@
 /*   By: ade-verd <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/08 13:44:39 by ade-verd          #+#    #+#             */
-/*   Updated: 2017/11/27 15:11:59 by ade-verd         ###   ########.fr       */
+/*   Updated: 2017/12/04 13:23:15 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ int					ft_intlen(int n);
 void				ft_swap(int *a, int *b);
 int					ft_power(int nb, int power);
 int					ft_sqrt(int nb);
+int					ft_int_sqrt(int nb);
 
 int					ft_isalpha(int c);
 int					ft_isdigit(int c);

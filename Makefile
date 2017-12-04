@@ -6,7 +6,7 @@
 #    By: oozkaya <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/27 07:29:36 by oozkaya           #+#    #+#              #
-#    Updated: 2017/12/03 23:28:48 by ade-verd         ###   ########.fr        #
+#    Updated: 2017/12/04 15:42:10 by ade-verd         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,8 @@ SRC = main.c\
 	  checker_init.c\
 	  map_creator.c\
 	  get_tm_coord.c\
-	  map_filler.c
+	  map_filler.c\
+	  free_allocated_mem.c
 
 OBJ_DIR = obj
 
@@ -59,14 +60,14 @@ $(LIB):
 obj:
 	@mkdir -p obj
 
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(INC_DIR)/*.h
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(INC_DIR)
 	@$(CC) $(CFLAGS) $(INCS) -c -o $@ $<
 	@echo "Linking -> " $< $(DONE)
 
 clean:
 	@rm -f $(OBJS)
 	@rm -rf $(OBJ_DIR)
-	@echo "Cleaning -> " $(NAME) $(DONE)
+	@echo "Cleaning -> " $(OBJS) $(DONE)
 
 fclean: clean
 	@rm -f $(NAME)

@@ -6,7 +6,7 @@
 /*   By: oozkaya <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/27 10:47:11 by oozkaya           #+#    #+#             */
-/*   Updated: 2017/12/04 09:26:39 by oozkaya          ###   ########.fr       */
+/*   Updated: 2017/12/04 14:40:47 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int		main(int ac, char **av)
 {
 	int		fd;
 	int		size;
+	char	*str;
 
 	size = 2;
 	if (ac == 2)
@@ -25,11 +26,15 @@ int		main(int ac, char **av)
 			ft_putstr_fd("error open().\n", 2);
 			return (-1);
 		}
-		ft_run_solver(fd, 'A', size);
+		str = ft_read_buff(fd);
+		ft_run_solver(str, 'A', size);
 		if (close(fd) == -1)
+		{
+			ft_putstr_fd("error close().\n", 2);
 			return (-1);
+		}
 	}
 	else
-		ft_putstr_fd("usage: ./fillit input_file\n", 2);
+		ft_putstr_fd("usage: ./fillit input_file\n", 1);
 	return (0);
 }
