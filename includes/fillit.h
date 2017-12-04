@@ -6,7 +6,7 @@
 /*   By: oozkaya <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/27 08:31:45 by oozkaya           #+#    #+#             */
-/*   Updated: 2017/12/04 15:35:22 by ade-verd         ###   ########.fr       */
+/*   Updated: 2017/12/04 16:03:22 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,7 @@ int				ft_check_all(char **tab);
 char			*ft_create_empty_map(int side);
 int				ft_find_size_map(char *map);
 t_point			*ft_get_coord_tm(char *src, int size, char letter);
-char			*ft_eventual_resizer(t_point **tm, char *map, int size);
 void			ft_run_solver(char *str, char letter, int size);
-void			ft_free_all(t_point **t_tab, char *str, char *map);
+void			ft_free_all(t_point **t_tab, char *str, t_map *map);
 
 #endif

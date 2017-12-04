@@ -6,7 +6,7 @@
 /*   By: ade-verd <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/30 16:19:29 by ade-verd          #+#    #+#             */
-/*   Updated: 2017/12/04 15:25:35 by ade-verd         ###   ########.fr       */
+/*   Updated: 2017/12/04 16:03:21 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ static int		ft_solver(t_point **tm, t_map *mappy, int pos, int i)
 ** Runs ft_solver until it finds the good size of the map.
 */
 
-char			*ft_eventual_resizer(t_point **tm, char *map, int size)
+static t_map	*ft_eventual_resizer(t_point **tm, char *map, int size)
 {
 	t_map	*mappy;
 
@@ -98,11 +98,10 @@ char			*ft_eventual_resizer(t_point **tm, char *map, int size)
 	while (ft_solver(tm, mappy, 0, 0) == 0)
 	{
 		mappy->size = mappy->size + 1;
-		free((void**)&mappy->map);
+		ft_memdel((void**)&mappy->map);
 		mappy->map = ft_create_empty_map(mappy->size);
 	}
-	free(mappy);
-	return (map);
+	return (mappy);
 }
 
 /*
@@ -117,7 +116,7 @@ char			*ft_eventual_resizer(t_point **tm, char *map, int size)
 void			ft_run_solver(char *str, char letter, int size)
 {
 	int		i;
-	char	*map;
+	t_map	*mappy;
 	char	**tab;
 	int		nb;
 	t_point	**t_tab;
@@ -136,6 +135,6 @@ void			ft_run_solver(char *str, char letter, int size)
 	t_tab[nb] = 0;
 	while (tab[++i])
 		t_tab[i] = ft_get_coord_tm(tab[i], 4, letter++);
-	map = ft_eventual_resizer(t_tab, ft_create_empty_map(size), size);
-	ft_free_all(t_tab, str, map);
+	mappy = ft_eventual_resizer(t_tab, ft_create_empty_map(size), size);
+	ft_free_all(t_tab, str, mappy);
 }
