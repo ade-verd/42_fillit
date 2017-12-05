@@ -6,7 +6,7 @@
 #    By: oozkaya <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/27 07:29:36 by oozkaya           #+#    #+#              #
-#    Updated: 2017/12/05 11:03:52 by oozkaya          ###   ########.fr        #
+#    Updated: 2017/12/05 15:01:24 by oozkaya          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,8 @@ LIB = $(LIB_PATH)/libft.a
 LIB_LINK = -L $(LIB_PATH) -lft
 
 INC_DIR = includes
-INCS = -I $(INC_DIR)
+INC_LIB = ./
+INCS = -I $(LIB_PATH)/$(INC_LIB) -I $(INC_DIR)
 
 SRC_DIR = src
 SRC = main.c\
@@ -49,9 +50,12 @@ DONE = $(C_DONE)DONE$(C_NO)
 
 all: $(NAME)
 
-$(NAME): obj $(LIB) $(OBJS)
+$(NAME): obj $(OBJS) $(LIB)
 	@$(CC) $(CFLAGS) $(OBJS) $(LIB_LINK) -o $@
 	@echo "Compiling -> " $(NAME) $(SUCCESS)
+
+$(LIB):
+	@make -C $(LIB_PATH)
 
 obj:
 	@mkdir -p obj
@@ -63,10 +67,12 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(INC_DIR)
 clean:
 	@rm -f $(OBJS)
 	@rm -Rf $(OBJ_DIR)
-	@echo "Cleaning all the Fillit objects -> " $(DONE)
+	@echo "Cleaning all the Fillit objects -> " $(SUCCESS)
+	@make -C $(LIB_PATH) clean
 
 fclean: clean
 	@rm -f $(NAME)
-	@echo "Deleting -> " $(NAME) $(DONE)
+	@make -C $(LIB_PATH) clean_only_lib
+	@echo "Deleting -> " $(NAME) $(SUCCESS)
 
 re: fclean all
