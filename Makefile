@@ -6,14 +6,14 @@
 #    By: oozkaya <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/27 07:29:36 by oozkaya           #+#    #+#              #
-#    Updated: 2017/12/04 16:47:56 by ade-verd         ###   ########.fr        #
+#    Updated: 2017/12/05 07:55:07 by oozkaya          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 .PHONY: all clean fclean re
 
 NAME = fillit
-#CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 CC = gcc
 
 LIB_PATH = libft
@@ -67,7 +67,7 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(INC_DIR)
 clean:
 	@rm -f $(OBJS)
 	@rm -Rf $(OBJ_DIR)
-	@echo "Cleaning -> " $(OBJS) $(DONE)
+	@echo "Cleaning -> " $(NAME) $(DONE)
 
 fclean: clean
 	@rm -f $(NAME)

@@ -6,7 +6,7 @@
 #    By: ade-verd <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/07 16:30:07 by ade-verd          #+#    #+#              #
-#    Updated: 2017/12/04 17:06:59 by ade-verd         ###   ########.fr        #
+#    Updated: 2017/12/05 07:55:11 by oozkaya          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,7 +69,7 @@ $(NAME): $(OBJ)
 
 clean: $(OBJ)
 	@rm -f $^
-	@echo "Cleaning -> " $^ $(DONE)
+	@echo "Cleaning -> " $(NAME) $(DONE)
 
 fclean: clean
 	@rm -f $(NAME)

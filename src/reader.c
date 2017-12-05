@@ -6,7 +6,7 @@
 /*   By: oozkaya <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/04 09:13:40 by oozkaya           #+#    #+#             */
-/*   Updated: 2017/12/04 14:01:01 by ade-verd         ###   ########.fr       */
+/*   Updated: 2017/12/05 07:47:11 by oozkaya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ char	*ft_read_buff(int fd)
 	char	*str;
 	int		len;
 	int		ret;
-	char	tmp[BUFF_SIZE + 1];
 
 	len = 0;
 	if ((str = (char*)malloc(sizeof(char) * BUFF_SIZE + 1)) == NULL)
