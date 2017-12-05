@@ -6,7 +6,7 @@
 #    By: ade-verd <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/07 16:30:07 by ade-verd          #+#    #+#              #
-#    Updated: 2017/12/05 07:55:11 by oozkaya          ###   ########.fr        #
+#    Updated: 2017/12/05 09:19:27 by oozkaya          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -67,11 +67,12 @@ $(NAME): $(OBJ)
 	@$(CC) $(CFLAGS) -c -o $@ $< -I $(INC_DIR)
 	@echo "Linking -> " $< $(DONE)
 
-clean: $(OBJ)
-	@rm -f $^
-	@echo "Cleaning -> " $(NAME) $(DONE)
+clean:
+	@rm -f $(OBJ)
+	@echo "Cleaning all the Libft objects -> "  $(DONE)
 
 fclean: clean
 	@rm -f $(NAME)
+	@echo "Deleting -> " $(NAME) $(DONE)
 
 re: fclean all

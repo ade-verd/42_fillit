@@ -6,7 +6,7 @@
 #    By: oozkaya <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/27 07:29:36 by oozkaya           #+#    #+#              #
-#    Updated: 2017/12/05 07:55:07 by oozkaya          ###   ########.fr        #
+#    Updated: 2017/12/05 10:30:59 by oozkaya          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,10 +48,10 @@ C_WARN = "\033[33m"
 SUCCESS = $(C_GOOD)SUCCESS$(C_NO)
 DONE = $(C_DONE)DONE$(C_NO)
 
-all: obj $(NAME)
+all: $(NAME)
 
-$(NAME): $(LIB) $(OBJS)
-	@$(CC) $(CFLAGS) -o $@ $^ $(LIB_LINK)
+$(NAME): obj $(LIB) $(OBJS)
+	@$(CC) $(CFLAGS) -o $@ $(LIB) $(OBJS) $(LIB_LINK)
 	@echo "Compiling -> " $(NAME) $(SUCCESS)
 
 $(LIB):
@@ -67,7 +67,8 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(INC_DIR)
 clean:
 	@rm -f $(OBJS)
 	@rm -Rf $(OBJ_DIR)
-	@echo "Cleaning -> " $(NAME) $(DONE)
+	@make -C $(LIB_PATH) clean
+	@echo "Cleaning all the Fillit objects -> " $(DONE)
 
 fclean: clean
 	@rm -f $(NAME)
