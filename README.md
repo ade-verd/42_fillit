@@ -1,4 +1,3 @@
-<img style="float: right;" src="00_Subject/fillit_sample.jpeg">
 
 # Fillit (42 School Project)
 
@@ -24,8 +23,6 @@ Subjects:
 * [english](00_Subject/fillit.en.pdf)
 * [french](00_Subject/fillit.fr.pdf)
 
-
-### How to use
-`./fillit file`
+![Sample](00_Subject/fillit_sample.jpeg)
 
 ### Enjoy!
